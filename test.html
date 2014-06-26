@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Matt's Function Grapher</title>
+  <meta name="description" content="Matt's Function Grapher">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="styles.css?v=1.0">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  
+	<script type="text/javascript" src="checkBalance.js"></script>
+    <script type="text/javascript" src="test.js"></script>
+	<script type="text/javascript" src="tokenize.js"></script>
+	<script type="text/javascript" src="infix_to_postfix.js"></script>
+	<script type="text/javascript" src="evalPostFix.js"></script>
+	<script type="text/javascript" src="drawGraph.js"></script>
+	<script type="text/javascript" src="helpers.js"></script>
+  
+  
+</head>
+
+<body>
+
+	<div id="inputFields">
+		<label>Expression: y=</label><input type="text" class="inputField" id="expr" value="x^2"><br />
+		<label>Lower Bound:</label><input type="text" class="inputField" id="lbound" value="-10"><br />
+		<label>Upper Bound:</label><input type="text" class="inputField" id="ubound" value="10"><br />
+		<label>Step:</label><input type="text" class="inputField" id="step" value=".1"></br>
+		<input type="Submit" value="Draw Graph" id="myButton" onclick="test()"/></br><br />
+		Expression is balanced: <span id="output"></span></br>
+		Expression converted to PostFix: <span id="postfix"></span></br>
+		<p>This is my first attempt at writing a graphing calculator. Currently, it can handle addition (+), subtraction (-), multiplication (*), division (/) and exponentiation (^)</p>
+		<p>It's still missing a few features: 
+			<ul>
+				<li>Unary minus was implemented as an afterthought and can be improved.</li>
+				<li>Functions like absolute value, trigonometric functions, square root, etc have not yet been implemented.</li>
+				<li>Proper scaling needs to be implemented for drawing the graph.</li>
+				<li>Need ability to clear the graph without refreshing the page.</li>
+				<li>Multple lines on the graph canvas could be different colors.</li>
+			</ul>
+		</p>
+		<p>Feel free to suggest improvements.</p>
+	</div>
+	
+	<div id="graph">
+	<canvas id="functionGraph"></canvas></br>
+	</div>
+	<div id="outputTable">
+	Table of Values: </br><div id="eval"></div>
+	</div>
+  
+</body>
+</html>

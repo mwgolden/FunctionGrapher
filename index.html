@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Matt's Function Grapher</title>
+  <meta name="description" content="Matt's Function Grapher">
+  <meta name="author" content="SitePoint">
+
+ 
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="css/styles.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  
+	<script type="text/javascript" src="js/checkBalance.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+	<script type="text/javascript" src="js/tokenize.js"></script>
+	<script type="text/javascript" src="js/infix_to_postfix.js"></script>
+	<script type="text/javascript" src="js/evalPostFix.js"></script>
+	<script type="text/javascript" src="js/drawGraph.js"></script>
+	<script type="text/javascript" src="js/helpers.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+  
+</head>
+
+<body>
+    <div class="container">
+        <div class="col-lg-7">
+	       <canvas id="functionGraph"></canvas></br>
+       </div>
+        <div class="col-lg-5">
+            <form class="form-horizontal">
+	           <div id="inputFields">
+                    <label>Expression: y=</label><input type="text" class="inputField" id="expr" placeholder="x^2"><br />
+                    <label>Lower Bound:</label><input type="text" class="inputField" id="lbound" placeholder="-10"><br />
+                    <label>Upper Bound:</label><input type="text" class="inputField" id="ubound" placeholder="10"><br />
+                    <label>Step:</label><input type="text" class="inputField" id="step" placeholder=".1"></br>
+                    <input value="Draw Graph" class="btn btn-primary" onclick="test()"/><br/><br/>
+                </div>
+            </form>
+              <small>Expression is balanced: <span id="output"></span></br>
+		      Expression converted to PostFix: <span id="postfix"></span></br></small>
+        </div>
+    </div>
+
+
+    <div class="container col-lg-12">
+	   <div id="outputTable">
+	   Table of Values: </br><div id="eval"></div>
+	   </div>
+    </div>
+  
+</body>
+</html>

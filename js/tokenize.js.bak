@@ -1,0 +1,88 @@
+function tokenize(expression)
+{
+	var letter = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	var number = "1234567890";
+	var operator = "()^*/+-";
+	var chrChar = '';
+	var nxtChar = '';
+	var token= "";
+	var tokenArray = new Array();
+	var exprIndexCounter = 0;
+	var tokenArrayIndexCounter = 0;
+	
+	chrChar = expression[exprIndexCounter];
+	if(exprIndexCounter < (expression.length) - 1)
+	{
+		nxtChar = expression[exprIndexCounter + 1];
+	}
+		
+	while(exprIndexCounter < expression.length)
+	{
+	
+		if(letter.indexOf(chrChar) != -1)
+		{
+			while((letter.indexOf(chrChar) != -1) && (exprIndexCounter < expression.length))
+			{
+				token += chrChar;
+				chrChar = nxtChar;
+				exprIndexCounter++;
+				if(exprIndexCounter < (expression.length) - 1)
+				{
+					nxtChar = expression[exprIndexCounter + 1];
+				}	
+			}
+			if(token != "")
+			{
+				tokenArray[tokenArrayIndexCounter] = token;
+				tokenArrayIndexCounter += 1;
+				token = "";
+			}
+		}
+		else if(number.indexOf(chrChar) != -1)
+		{
+			while((number.indexOf(chrChar) != -1) && (exprIndexCounter < expression.length))
+			{
+				token += chrChar;
+				chrChar = nxtChar;
+				exprIndexCounter++;
+				if(exprIndexCounter < (expression.length) - 1)
+				{
+					nxtChar = expression[exprIndexCounter + 1];
+				}	
+			}
+			if(token != "")
+			{
+				tokenArray[tokenArrayIndexCounter] = token;
+				tokenArrayIndexCounter += 1;
+				token = "";
+			}
+		}
+		else if(operator.indexOf(chrChar) != -1)
+		{
+			token += chrChar;
+			chrChar = nxtChar;
+			exprIndexCounter++;
+			if(exprIndexCounter < (expression.length) - 1)
+			{
+				nxtChar = expression[exprIndexCounter + 1];
+			}	
+			if(token != "")
+			{
+				tokenArray[tokenArrayIndexCounter] = token;
+				tokenArrayIndexCounter += 1;
+				token = "";
+			}
+		}
+		else
+		{
+			chrChar = nxtChar;
+			exprIndexCounter++;
+			if(exprIndexCounter < (expression.length) - 1)
+			{
+				nxtChar = expression[exprIndexCounter + 1];
+			}	
+		}
+		
+	}
+	return tokenArray
+}
